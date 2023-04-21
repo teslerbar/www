@@ -1,8 +1,0 @@
-{
-links: 
-  [{url: https://twitter.com/jaredpalmer/status/1643627344475594752},
-{url: https://twitter.com/elonmusk/status/1649255827725844481},
-{url: https://twitter.com/rauchg/status/1649026997819940865},
-{url: https://twitter.com/amsterdamski2/status/1649137963559710727},
-    ]
-}
