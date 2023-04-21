@@ -13,7 +13,7 @@ export default async function Home() {
 
   return (
     <>
-      <p className="z-10 w-full max-w-xl px-5 xl:px-0">{response}</p>
+      <p className="z-10 w-full max-w-xl px-5 xl:px-0">{response.toString()}</p>
       <div className="z-10 w-full max-w-xl px-5 xl:px-0">
         <div className="grid grid-cols-4 gap-4">
           <blockquote class="twitter-tweet">
