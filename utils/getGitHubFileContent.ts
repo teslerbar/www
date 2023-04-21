@@ -24,11 +24,9 @@ export async function getGitHubFileContent({
   const response = await fetch(url, options);
   const content = await response.json();
 
-  const decoded = Buffer.from(content.content, "base64").toString(
-    "utf8",
-  );
+  const decoded = Buffer.from(content.content, "base64").toString("utf8");
   const trimmed = decoded.trim();
   const parsed = JSON.parse(trimmed);
-  console.log(parsed.links);
+
   return parsed;
 }
