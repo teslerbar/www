@@ -1,7 +1,7 @@
 import { getGitHubFileContent } from "@/utils/getGitHubFileContent";
 
 const repoUrl = "https://api.github.com/repos/teslerbar/www";
-const filePath = ".eslintrc.json";
+const filePath = "content.js";
 const branchName = "main";
 
 export default async function Home() {
