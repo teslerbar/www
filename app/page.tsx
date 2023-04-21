@@ -1,6 +1,5 @@
-import { Tweet } from "@/components/home/Tweet";
+import { Tweet } from "@/components/shared/Tweet/Tweet";
 import { getGitHubFileContent } from "@/utils/getGitHubFileContent";
-
 
 const repoUrl = "https://api.github.com/repos/teslerbar/www";
 const filePath = "content.json";
@@ -15,11 +14,10 @@ export default async function Home() {
 
   return (
     <main className={"z-10 w-full max-w-screen-xl"}>
-      <div className="mx-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 justify-between gap-4 xl:mx-auto">
-        {links.map((link) => {
-          console.log({ link });
-          const id = link?.url?.split("/").pop();
-          return <Tweet className={'w-full'} key={id} id={id} />;
+      <div className="mx-5 grid grid-cols-1 justify-between gap-4 sm:grid-cols-2 xl:mx-auto xl:grid-cols-3">
+        {links.map(({ url }) => {
+          const id = url.split("/").pop();
+          return id && <Tweet key={id} id={id} />;
         })}
       </div>
     </main>
