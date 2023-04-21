@@ -1,17 +1,6 @@
 import { Tweet } from "@/components/home/Tweet";
 import { getGitHubFileContent } from "@/utils/getGitHubFileContent";
-import {
-  TwitterTimelineEmbed,
-  TwitterShareButton,
-  TwitterFollowButton,
-  TwitterHashtagButton,
-  TwitterMentionButton,
-  TwitterTweetEmbed,
-  TwitterMomentShare,
-  TwitterDMButton,
-  TwitterVideoEmbed,
-  TwitterOnAirButton,
-} from "react-twitter-embed";
+
 
 const repoUrl = "https://api.github.com/repos/teslerbar/www";
 const filePath = "content.json";
@@ -25,16 +14,14 @@ export default async function Home() {
   });
 
   return (
-    <>
-      <div className="z-10 w-full max-w-6xl">
-        <div className="grid grid-flow-row-dense grid-cols-3 grid-rows-3">
-          {links.map((link) => {
-            console.log({ link });
-            const id = link?.url?.split("/").pop();
-            return <Tweet key={id} id={id} />;
-          })}
-        </div>
+    <main className={"z-10 w-full max-w-screen-xl"}>
+      <div className="mx-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 justify-between gap-4 xl:mx-auto">
+        {links.map((link) => {
+          console.log({ link });
+          const id = link?.url?.split("/").pop();
+          return <Tweet className={'w-full'} key={id} id={id} />;
+        })}
       </div>
-    </>
+    </main>
   );
 }
