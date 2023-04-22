@@ -25,7 +25,7 @@ export default async function Home() {
 
         <div
           className={cn(
-            "grid grid-cols-1 justify-between gap-4 sm:grid-cols-2 xl:grid-cols-3",
+            "grid grid-cols-1 items-start justify-between gap-4 sm:grid-cols-2 xl:grid-cols-3",
           )}
         >
           <TweetsFeed tweets={links} />
