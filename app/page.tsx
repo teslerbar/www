@@ -1,7 +1,6 @@
 import { TweetsFeed } from "@/components/home/TweetsFeed";
+import { Input } from "@/components/shared/Input";
 import { getGitHubFileContent } from "@/utils/getGitHubFileContent";
-import { Suspense } from "react";
-import { SomeSlowComponent } from "./SomeSlowComponent/SomeSlowComponent";
 
 const repoUrl = "https://api.github.com/repos/teslerbar/www";
 const filePath = "content.json";
@@ -17,17 +16,7 @@ export default async function Home() {
   return (
     <div className={"z-10 w-full max-w-screen-xl"}>
       <div className="mx-5 grid grid-cols-1 justify-between gap-4 sm:grid-cols-2 xl:mx-auto xl:grid-cols-3">
-        <Suspense
-          fallback={
-            <div className="z-10 w-full border-black text-lg text-black">
-              This component should be streamed...
-            </div>
-          }
-        >
-          {/* @ts-expect-error Server Component */}
-          <SomeSlowComponent />
-        </Suspense>
-
+        <Input />
         <TweetsFeed tweets={links} />
       </div>
     </div>

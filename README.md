@@ -1,7 +1,4 @@
-<a href="https://precedent.dev">
-  <img alt="Precedent – Building blocks for your Next project" src="https://precedent.dev/opengraph-image">
-  <h1 align="center">Precedent</h1>
-</a>
+  <h1 align="center">Don't forget</h1>
 
 <p align="center">
   Building blocks for your Next project
