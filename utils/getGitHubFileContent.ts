@@ -4,7 +4,7 @@ interface GetGitHubFileContentProps {
   branchName: string;
 }
 
-type Link = {
+export type CmsEntry = {
   url: string;
 };
 
@@ -12,7 +12,7 @@ export async function getGitHubFileContent({
   repoUrl,
   filePath,
   branchName,
-}: GetGitHubFileContentProps): Promise<{ links: Link[] }> {
+}: GetGitHubFileContentProps): Promise<{ links: CmsEntry[] }> {
   const url = `${repoUrl}/contents/${filePath}?ref=${branchName}`;
   const options = {
     ...(process.env.GITHUB_OAUTH_TOKEN && {
