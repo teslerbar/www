@@ -1,5 +1,7 @@
 import { TweetsFeed } from "@/components/home/TweetsFeed";
 import { Input } from "@/components/shared/Input";
+import { cn } from "@/lib/utils";
+
 import { getGitHubFileContent } from "@/utils/getGitHubFileContent";
 
 const repoUrl = "https://api.github.com/repos/teslerbar/www";
@@ -15,9 +17,19 @@ export default async function Home() {
 
   return (
     <div className={"z-10 w-full max-w-screen-xl"}>
-      <div className="mx-5 grid grid-cols-1 justify-between gap-4 sm:grid-cols-2 xl:mx-auto xl:grid-cols-3">
-        <Input />
-        <TweetsFeed tweets={links} />
+      <div className={"mx-5 xl:mx-auto"}>
+        <Input
+          className={"mb-6 h-16"}
+          placeholder="What do you want to keep...?"
+        />
+
+        <div
+          className={cn(
+            "grid grid-cols-1 justify-between gap-4 sm:grid-cols-2 xl:grid-cols-3",
+          )}
+        >
+          <TweetsFeed tweets={links} />
+        </div>
       </div>
     </div>
   );
