@@ -14,7 +14,8 @@ export async function getGitHubFileContent({
   branchName,
 }: GetGitHubFileContentProps): Promise<{ links: CmsEntry[] }> {
   const url = `${repoUrl}/contents/${filePath}?ref=${branchName}`;
-  const options = {
+
+  const response = await fetch(url, {
     ...(process.env.GITHUB_OAUTH_TOKEN && {
       headers: {
         Authorization: `Bearer ${process.env.GITHUB_OAUTH_TOKEN}`,
@@ -22,10 +23,9 @@ export async function getGitHubFileContent({
       },
     }),
     // data will revalidate every 60 seconds
-    next: { revalidate: 60 },
-  };
-
-  const response = await fetch(url, options);
+    // next: { revalidate: 60 },
+    cache: "no-store",
+  });
   const content = await response.json();
 
   const decoded = Buffer.from(content.content, "base64").toString("utf8");
